@@ -264,6 +264,82 @@ namespace Vedos.NavTree.Tests
             Assert.Equal("0-child-of-2b", childrenAndRoot[9].Id);
 
         }
+ 
+        [Fact]
+        public void CanAddNodeToExistingNavTree()
+        {
+            var navTree = new NavTreeNode("root")
+            {
+                new NavTreeNode("root-child-a")
+                {
+                    new NavTreeNode("0-child-of-a"),
+                    new NavTreeNode("1-child-of-a"),
+                    new NavTreeNode("2-child-of-a"),
+                },
+                new NavTreeNode("root-child-b")
+                {
+                    new NavTreeNode("0-child-of-b"),
+                    new NavTreeNode("1-child-of-b"),
+                    new NavTreeNode("2-child-of-b")
+                    {
+                        new NavTreeNode("0-child-of-2b")
+                    }
+                }
+            };
+
+            Assert.Equal("root", navTree.Id);
+            
+            var childrenAndRoot = navTree.BreadthFirstTraversal().ToArray();
+            Assert.Equal(10, childrenAndRoot.Count());
+            
+            Assert.Equal("root", childrenAndRoot[0].Id);
+            Assert.Equal("root-child-a", childrenAndRoot[1].Id);
+            Assert.Equal("root-child-b", childrenAndRoot[2].Id);
+            Assert.Equal("0-child-of-a", childrenAndRoot[3].Id);
+            Assert.Equal("1-child-of-a", childrenAndRoot[4].Id);
+            Assert.Equal("2-child-of-a", childrenAndRoot[5].Id);
+            Assert.Equal("0-child-of-b", childrenAndRoot[6].Id);
+            Assert.Equal("1-child-of-b", childrenAndRoot[7].Id);
+            Assert.Equal("2-child-of-b", childrenAndRoot[8].Id);
+            Assert.Equal("0-child-of-2b", childrenAndRoot[9].Id);
+            
+            navTree.Add(new NavTreeNode("added-root-child-c"));
+            
+            var modifiedChildrenAndRoot = navTree.BreadthFirstTraversal().ToArray();
+            Assert.Equal(11, modifiedChildrenAndRoot.Count());
+            
+            Assert.Equal("root", modifiedChildrenAndRoot[0].Id);
+            Assert.Equal("root-child-a", modifiedChildrenAndRoot[1].Id);
+            Assert.Equal("root-child-b", modifiedChildrenAndRoot[2].Id);
+            Assert.Equal("added-root-child-c", modifiedChildrenAndRoot[3].Id);
+            Assert.Equal("0-child-of-a", modifiedChildrenAndRoot[4].Id);
+            Assert.Equal("1-child-of-a", modifiedChildrenAndRoot[5].Id);
+            Assert.Equal("2-child-of-a", modifiedChildrenAndRoot[6].Id);
+            Assert.Equal("0-child-of-b", modifiedChildrenAndRoot[7].Id);
+            Assert.Equal("1-child-of-b", modifiedChildrenAndRoot[8].Id);
+            Assert.Equal("2-child-of-b", modifiedChildrenAndRoot[9].Id);
+            Assert.Equal("0-child-of-2b", modifiedChildrenAndRoot[10].Id);
+
+            var lastChild = navTree.Descendents().First(x => x.Id == "0-child-of-2b");
+            lastChild.Add(new NavTreeNode("added-0-child-of-02b"));
+ 
+            var secondaryModifiedChildrenAndRoot = navTree.BreadthFirstTraversal().ToArray();
+            Assert.Equal(12, secondaryModifiedChildrenAndRoot.Count());
+            
+            Assert.Equal("root", secondaryModifiedChildrenAndRoot[0].Id);
+            Assert.Equal("root-child-a", secondaryModifiedChildrenAndRoot[1].Id);
+            Assert.Equal("root-child-b", secondaryModifiedChildrenAndRoot[2].Id);
+            Assert.Equal("added-root-child-c", secondaryModifiedChildrenAndRoot[3].Id);
+            Assert.Equal("0-child-of-a", secondaryModifiedChildrenAndRoot[4].Id);
+            Assert.Equal("1-child-of-a", secondaryModifiedChildrenAndRoot[5].Id);
+            Assert.Equal("2-child-of-a", secondaryModifiedChildrenAndRoot[6].Id);
+            Assert.Equal("0-child-of-b", secondaryModifiedChildrenAndRoot[7].Id);
+            Assert.Equal("1-child-of-b", secondaryModifiedChildrenAndRoot[8].Id);
+            Assert.Equal("2-child-of-b", secondaryModifiedChildrenAndRoot[9].Id);
+            Assert.Equal("0-child-of-2b", secondaryModifiedChildrenAndRoot[10].Id);
+            Assert.Equal("added-0-child-of-02b", secondaryModifiedChildrenAndRoot[11].Id);
+
+        }
 
     }
 }
