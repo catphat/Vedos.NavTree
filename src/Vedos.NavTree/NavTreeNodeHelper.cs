@@ -17,6 +17,17 @@ namespace Vedos.NavTree
             }
         }
 
+        public static IEnumerable<NavTreeNode> DepthFirstTraversal(this NavTreeNode root)
+        {
+            var nodes = new Stack<NavTreeNode>(new []{root});
+            while (nodes.Any())
+            {
+                var node = nodes.Pop();
+                yield return node;
+                foreach (var cn in node.Children()) nodes.Push(cn);
+            }
+        }
+
         public static IEnumerable<NavTreeNode> ParentBreadthFirstTraversal(this NavTreeNode node)
         {
             var nodes = new Queue<NavTreeNode>(new[] {node});

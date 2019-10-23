@@ -183,7 +183,87 @@ namespace Vedos.NavTree.Tests
 
              var path = lastChild.ToPath();
              Assert.Equal("/root/root-child-b/2-child-of-b/0-child-of-2b", path);
-           
         }
+        
+        [Fact]
+        public void CanGetChildrenViaDepthFirstTraversal()
+        {
+            var navTree = new NavTreeNode("root")
+            {
+                new NavTreeNode("root-child-a")
+                {
+                    new NavTreeNode("0-child-of-a"),
+                    new NavTreeNode("1-child-of-a"),
+                    new NavTreeNode("2-child-of-a"),
+                },
+                new NavTreeNode("root-child-b")
+                {
+                    new NavTreeNode("0-child-of-b"),
+                    new NavTreeNode("1-child-of-b"),
+                    new NavTreeNode("2-child-of-b")
+                    {
+                        new NavTreeNode("0-child-of-2b")
+                    }
+                }
+            };
+
+            Assert.Equal("root", navTree.Id);
+            
+            var childrenAndRoot = navTree.DepthFirstTraversal().ToArray();
+            Assert.Equal(10, childrenAndRoot.Count());
+            
+            Assert.Equal("root", childrenAndRoot[0].Id);
+            Assert.Equal("root-child-b", childrenAndRoot[1].Id);
+            Assert.Equal("2-child-of-b", childrenAndRoot[2].Id);
+            Assert.Equal("0-child-of-2b", childrenAndRoot[3].Id);
+            Assert.Equal("1-child-of-b", childrenAndRoot[4].Id);
+            Assert.Equal("0-child-of-b", childrenAndRoot[5].Id);
+            Assert.Equal("root-child-a", childrenAndRoot[6].Id);
+            Assert.Equal("2-child-of-a", childrenAndRoot[7].Id);
+            Assert.Equal("1-child-of-a", childrenAndRoot[8].Id);
+            Assert.Equal("0-child-of-a", childrenAndRoot[9].Id);
+
+        }
+        
+        [Fact]
+        public void CanGetChildrenViaBreadthFirstTraversal()
+        {
+            var navTree = new NavTreeNode("root")
+            {
+                new NavTreeNode("root-child-a")
+                {
+                    new NavTreeNode("0-child-of-a"),
+                    new NavTreeNode("1-child-of-a"),
+                    new NavTreeNode("2-child-of-a"),
+                },
+                new NavTreeNode("root-child-b")
+                {
+                    new NavTreeNode("0-child-of-b"),
+                    new NavTreeNode("1-child-of-b"),
+                    new NavTreeNode("2-child-of-b")
+                    {
+                        new NavTreeNode("0-child-of-2b")
+                    }
+                }
+            };
+
+            Assert.Equal("root", navTree.Id);
+            
+            var childrenAndRoot = navTree.BreadthFirstTraversal().ToArray();
+            Assert.Equal(10, childrenAndRoot.Count());
+            
+            Assert.Equal("root", childrenAndRoot[0].Id);
+            Assert.Equal("root-child-a", childrenAndRoot[1].Id);
+            Assert.Equal("root-child-b", childrenAndRoot[2].Id);
+            Assert.Equal("0-child-of-a", childrenAndRoot[3].Id);
+            Assert.Equal("1-child-of-a", childrenAndRoot[4].Id);
+            Assert.Equal("2-child-of-a", childrenAndRoot[5].Id);
+            Assert.Equal("0-child-of-b", childrenAndRoot[6].Id);
+            Assert.Equal("1-child-of-b", childrenAndRoot[7].Id);
+            Assert.Equal("2-child-of-b", childrenAndRoot[8].Id);
+            Assert.Equal("0-child-of-2b", childrenAndRoot[9].Id);
+
+        }
+
     }
 }
