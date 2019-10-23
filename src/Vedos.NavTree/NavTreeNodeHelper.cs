@@ -30,6 +30,18 @@ namespace Vedos.NavTree
                 }
             }
         }
+
+        public static string ToPath(this NavTreeNode node, string delimiter = "/")
+        {
+            var sb = new StringBuilder();
+            var nodes = node.ParentBreadthFirstTraversal();
+            foreach (var n in nodes)
+            {
+                sb.Insert(0, delimiter + n.Id);
+            }
+            
+            return sb.ToString();
+        }
         
         public static IEnumerable<NavTreeNode> Descendents(this NavTreeNode root)
         {

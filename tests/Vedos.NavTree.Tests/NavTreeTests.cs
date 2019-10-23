@@ -155,5 +155,35 @@ namespace Vedos.NavTree.Tests
             Assert.Equal("root", parents[3].Id);
 
         }
+
+        [Fact]
+        public static void ToPathReturnsValidPath()
+        {
+             var navTree = new NavTreeNode("root")
+             {
+                 new NavTreeNode("root-child-a")
+                 {
+                     new NavTreeNode("0-child-of-a"),
+                     new NavTreeNode("1-child-of-a"),
+                     new NavTreeNode("2-child-of-a"),
+                 },
+                 new NavTreeNode("root-child-b")
+                 {
+                     new NavTreeNode("0-child-of-b"),
+                     new NavTreeNode("1-child-of-b"),
+                     new NavTreeNode("2-child-of-b")
+                     {
+                         new NavTreeNode("0-child-of-2b")
+                     }
+                 }
+             };
+             
+             var lastChild = navTree.Descendents().First(x => x.Id == "0-child-of-2b");
+             Assert.NotNull(lastChild);
+
+             var path = lastChild.ToPath();
+             Assert.Equal("/root/root-child-b/2-child-of-b/0-child-of-2b", path);
+           
+        }
     }
 }
