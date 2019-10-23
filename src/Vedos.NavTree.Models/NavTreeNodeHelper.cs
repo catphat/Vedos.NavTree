@@ -5,11 +5,9 @@ namespace Vedos.NavTree.Models
 {
     public static class NavTreeNodeHelper
     {
-        
-       
         public static IEnumerable<NavTreeNode> BreadthFirstTraversal(this NavTreeNode root)
         {
-            var nodes = new Queue<NavTreeNode>(new []{root});
+            var nodes = new Queue<NavTreeNode>(new[] {root});
             while (nodes.Any())
             {
                 var node = nodes.Dequeue();
@@ -18,11 +16,9 @@ namespace Vedos.NavTree.Models
             }
         }
 
-
         public static IEnumerable<NavTreeNode> Descendents(this NavTreeNode root)
         {
             return root.BreadthFirstTraversal().Where(x => x.Id != root.Id);
         }
- 
     }
 }
