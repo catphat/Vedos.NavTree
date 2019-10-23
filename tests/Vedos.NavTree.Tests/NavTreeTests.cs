@@ -119,5 +119,41 @@ namespace Vedos.NavTree.Tests
             Assert.NotNull(lastChild);
 
         }
+
+
+        [Fact]
+        public void CanGetParentsViaBreadthFirstTraversal()
+        {
+            var navTree = new NavTreeNode("root")
+            {
+                new NavTreeNode("root-child-a")
+                {
+                    new NavTreeNode("0-child-of-a"),
+                    new NavTreeNode("1-child-of-a"),
+                    new NavTreeNode("2-child-of-a"),
+                },
+                new NavTreeNode("root-child-b")
+                {
+                    new NavTreeNode("0-child-of-b"),
+                    new NavTreeNode("1-child-of-b"),
+                    new NavTreeNode("2-child-of-b")
+                    {
+                        new NavTreeNode("0-child-of-2b")
+                    }
+                }
+            };
+            
+            var lastChild = navTree.Descendents().First(x => x.Id == "0-child-of-2b");
+            Assert.NotNull(lastChild);
+
+            var parents = lastChild.ParentBreadthFirstTraversal().ToArray();
+            Assert.Equal(4, parents.Count());
+            
+            Assert.Equal("0-child-of-2b", parents[0].Id);
+            Assert.Equal("2-child-of-b", parents[1].Id);
+            Assert.Equal("root-child-b", parents[2].Id);
+            Assert.Equal("root", parents[3].Id);
+
+        }
     }
 }

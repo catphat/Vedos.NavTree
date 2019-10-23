@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Vedos.NavTree
 {
@@ -16,9 +17,24 @@ namespace Vedos.NavTree
             }
         }
 
+        public static IEnumerable<NavTreeNode> ParentBreadthFirstTraversal(this NavTreeNode node)
+        {
+            var nodes = new Queue<NavTreeNode>(new[] {node});
+            while (nodes.Any())
+            {
+                var n = nodes.Dequeue();
+                yield return n;
+                if (n.Parent != null)
+                {
+                    nodes.Enqueue(n.Parent);
+                }
+            }
+        }
+        
         public static IEnumerable<NavTreeNode> Descendents(this NavTreeNode root)
         {
             return root.BreadthFirstTraversal().Where(x => x.Id != root.Id);
         }
+
     }
 }
