@@ -19,8 +19,8 @@
     "frameworks": {
       "netcoreapp3.0": {
         "projectReferences": {
-          "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree.Models\\Vedos.NavTree.Models.csproj": {
-            "projectPath": "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree.Models\\Vedos.NavTree.Models.csproj"
+          "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree\\Vedos.NavTree.csproj": {
+            "projectPath": "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree\\Vedos.NavTree.csproj"
           }
         }
       }

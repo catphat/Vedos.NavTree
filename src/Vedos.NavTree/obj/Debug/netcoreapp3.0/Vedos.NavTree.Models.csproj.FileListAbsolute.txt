@@ -1,0 +1,8 @@
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\bin\Debug\netcoreapp3.0\Vedos.NavTree.Models.deps.json
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\bin\Debug\netcoreapp3.0\Vedos.NavTree.Models.dll
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\bin\Debug\netcoreapp3.0\Vedos.NavTree.Models.pdb
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\obj\Debug\netcoreapp3.0\Vedos.NavTree.Models.csprojAssemblyReference.cache
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\obj\Debug\netcoreapp3.0\Vedos.NavTree.Models.AssemblyInfoInputs.cache
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\obj\Debug\netcoreapp3.0\Vedos.NavTree.Models.AssemblyInfo.cs
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\obj\Debug\netcoreapp3.0\Vedos.NavTree.Models.dll
+C:\Users\user12\Documents\ISHQ-V\DEV\C#\Vedos.NavTree\src\Vedos.NavTree.Models\obj\Debug\netcoreapp3.0\Vedos.NavTree.Models.pdb

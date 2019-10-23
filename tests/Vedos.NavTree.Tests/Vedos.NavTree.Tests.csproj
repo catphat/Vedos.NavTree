@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Vedos.NavTree.Models\Vedos.NavTree.Models.csproj" />
+      <ProjectReference Include="..\..\src\Vedos.NavTree\Vedos.NavTree.csproj" />
     </ItemGroup>
 
 </Project>

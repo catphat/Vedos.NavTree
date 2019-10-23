@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Vedos.NavTree.Models
+namespace Vedos.NavTree
 {
     public static class NavTreeNodeHelper
     {

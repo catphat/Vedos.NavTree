@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Vedos.NavTree.Models;
 using Xunit;
 
 namespace Vedos.NavTree.Tests

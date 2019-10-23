@@ -1963,14 +1963,14 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Vedos.NavTree.Models/1.0.0": {
+      "Vedos.NavTree/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
         "compile": {
-          "bin/placeholder/Vedos.NavTree.Models.dll": {}
+          "bin/placeholder/Vedos.NavTree.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Vedos.NavTree.Models.dll": {}
+          "bin/placeholder/Vedos.NavTree.dll": {}
         }
       }
     }
@@ -6515,16 +6515,16 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Vedos.NavTree.Models/1.0.0": {
+    "Vedos.NavTree/1.0.0": {
       "type": "project",
-      "path": "../../src/Vedos.NavTree.Models/Vedos.NavTree.Models.csproj",
-      "msbuildProject": "../../src/Vedos.NavTree.Models/Vedos.NavTree.Models.csproj"
+      "path": "../../src/Vedos.NavTree/Vedos.NavTree.csproj",
+      "msbuildProject": "../../src/Vedos.NavTree/Vedos.NavTree.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "Microsoft.NET.Test.Sdk >= 16.2.0",
-      "Vedos.NavTree.Models >= 1.0.0",
+      "Vedos.NavTree >= 1.0.0",
       "coverlet.collector >= 1.0.1",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
@@ -6560,8 +6560,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree.Models\\Vedos.NavTree.Models.csproj": {
-              "projectPath": "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree.Models\\Vedos.NavTree.Models.csproj"
+            "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree\\Vedos.NavTree.csproj": {
+              "projectPath": "C:\\Users\\user12\\Documents\\ISHQ-V\\DEV\\C#\\Vedos.NavTree\\src\\Vedos.NavTree\\Vedos.NavTree.csproj"
             }
           }
         }
